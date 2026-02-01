@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumenty Przetargowe - Generuj automatycznie dla firm budowlanych</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 5rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            padding: 3rem 0;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #1e40af;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e40af;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e40af;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border: 3px solid #3b82f6;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price span {
+            font-size: 1.5rem;
+            color: #64748b;
+        }
+
+        .pricing-description {
+            color: #64748b;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #3b82f6;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Przetargi.Build</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Dokumenty przetargowe dla firm budowlanych</h1>
+            <p>Automatycznie generuj kompleksowe pakiety dokumentów przetargowych na podstawie danych firmowych. Zaoszczędź czas i uniknij błędów.</p>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="container">
+            <div class="form-card">
+                <h2>Sprawdź swoją firmę</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="nip">NIP firmy</label>
+                        <input 
+                            type="text" 
+                            id="nip" 
+                            name="nip" 
+                            placeholder="Wpisz NIP firmy" 
+                            required
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                        >
+                    </div>
+                    <button type="submit" class="btn">Sprawdź firmę</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Co zyskujesz?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Kompletna dokumentacja</h3>
+                    <p>Wszystkie wymagane dokumenty przetargowe w jednym pakiecie, zgodne z aktualnymi wymogami prawnymi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Błyskawiczne generowanie</h3>
+                    <p>Pobierz gotowe dokumenty w kilka minut zamiast spędzać godziny na ich przygotowaniu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Dane z urzędowych źródeł</h3>
+                    <p>Automatyczne pobieranie danych firmy z KRS i CEIDG - zawsze aktualne i poprawne informacje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Prosty cennik</h2>
+            <div class="pricing-card">
+                <div class="pricing-badge">PAKIET PODSTAWOWY</div>
+                <div class="pricing-price">99 <span>PLN</span></div>
+                <p class="pricing-description">Za jeden kompletny pakiet dokumentów</p>
+                <ul class="pricing-features">
+                    <li>Oświadczenie o braku wykluczenia</li>
+                    <li>Oświadczenie o spełnianiu warunków udziału</li>
+                    <li>Wykaz wykonanych robót budowlanych</li>
+                    <li>Wykaz osób (kadra techniczna)</li>
+                    <li>Wykaz narzędzi i sprzętu</li>
+                    <li>Dokumenty rejestrowe firmy</li>
+                    <li>Pełne poświadczenie za zgodność z oryginałem</li>
+                    <li>Format PDF gotowy do druku</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Przetargi.Build</h3>
+                    <p>Automatyzujemy przygotowanie dokumentacji przetargowej dla firm budowlanych.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: kontakt@przetargi.build</p>
+                    <p>Tel: +48 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Informacje</h3>
+                    <a href="#">Regulamin</a>
+                    <a href="#">Polityka prywatności</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Przetargi.Build. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
