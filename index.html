@@ -3,185 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dokumenty Przetargowe - Profesjonalne materiały dla firm budowlanych</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="flex items-center justify-between">
-                <h1 class="text-2xl font-bold text-blue-600">Dokumenty Przetargowe</h1>
-                <nav>
-                    <a href="#cennik" class="text-gray-600 hover:text-blue-600 transition">Cennik</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <title>Dokumenty przetargowe dla firm budowlanych</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-4xl sm:text-5xl font-bold mb-6">
-                    Dokumenty przetargowe dla firm budowlanych
-                </h2>
-                <p class="text-xl text-blue-100 mb-8">
-                    Profesjonalne, gotowe do użycia dokumenty dostosowane do Twojej firmy. 
-                    Oszczędź czas i zwiększ szanse na wygranie przetargu.
-                </p>
-            </div>
-        </div>
-    </section>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
 
-    <!-- Formularz NIP -->
-    <section class="py-16 bg-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <h3 class="text-3xl font-bold text-gray-900 mb-4">Sprawdź swoją firmę</h3>
-                <p class="text-lg text-gray-600">Podaj NIP, aby zobaczyć dostępne dokumenty dla Twojej firmy</p>
-            </div>
-            
-            <div class="bg-gray-50 rounded-lg p-8 shadow-md">
-                <form id="nipForm" class="space-y-6">
-                    <div>
-                        <label for="nip" class="block text-sm font-medium text-gray-700 mb-2">
-                            Numer NIP
-                        </label>
-                        <input 
-                            type="text" 
-                            id="nip" 
-                            name="nip"
-                            placeholder="np. 1234567890"
-                            maxlength="10"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                            required
-                        >
-                        <p class="mt-2 text-sm text-gray-500">Wprowadź 10-cyfrowy numer NIP bez kresek</p>
-                    </div>
-                    
-                    <button 
-                        type="submit"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg"
-                    >
-                        Sprawdź firmę
-                    </button>
-                </form>
-                
-                <div id="result" class="mt-6 hidden">
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                        <p class="text-blue-800" id="resultMessage"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            margin: 1rem 0;
+        }
 
-    <!-- Sekcja Cennik -->
-    <section id="cennik" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold text-gray-900 mb-4">Prosty i przejrzysty cennik</h3>
-                <p class="text-lg text-gray-600">Jeden pakiet, wszystkie potrzebne dokumenty</p>
-            </div>
-            
-            <div class="max-w-md mx-auto">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-blue-600">
-                    <div class="bg-blue-600 text-white text-center py-4">
-                        <h4 class="text-2xl font-bold">Pakiet Dokumentów</h4>
-                    </div>
-                    
-                    <div class="p-8">
-                        <div class="text-center mb-8">
-                            <div class="text-5xl font-bold text-gray-900 mb-2">99 PLN</div>
-                            <div class="text-gray-600">za pakiet</div>
-                        </div>
-                        
-                        <ul class="space-y-4 mb-8">
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-700">Kompletny zestaw dokumentów przetargowych</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-700">Dostosowane do Twojej firmy</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-700">Natychmiastowy dostęp po płatności</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                <span class="text-gray-700">Formaty PDF i DOCX</span>
-                            </li>
-                        </ul>
-                        
-                        <a 
-                            href="#nipForm"
-                            class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-200"
-                        >
-                            Rozpocznij teraz
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        h1 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+            text-align: center;
+        }
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <p class="text-sm">
-                    &copy; 2026 Dokumenty Przetargowe. Wszystkie prawa zastrzeżone.
-                </p>
-                <div class="mt-4 space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition text-sm">Regulamin</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition text-sm">Polityka prywatności</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition text-sm">Kontakt</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        .description {
+            font-size: 1rem;
+            color: #4a5568;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
 
-    <!-- JavaScript -->
-    <script>
-        document.getElementById('nipForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nipInput = document.getElementById('nip');
-            const nip = nipInput.value.trim();
-            const resultDiv = document.getElementById('result');
-            const resultMessage = document.getElementById('resultMessage');
-            
-            // Walidacja NIP (10 cyfr)
-            if (!/^\d{10}$/.test(nip)) {
-                resultDiv.classList.remove('hidden');
-                resultDiv.querySelector('div').className = 'bg-red-50 border border-red-200 rounded-lg p-4';
-                resultMessage.className = 'text-red-800';
-                resultMessage.textContent = 'Nieprawidłowy format NIP. Wprowadź 10 cyfr.';
-                return;
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .pricing-section {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .price-box {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-top: 0.5rem;
+        }
+
+        .pricing-label {
+            font-size: 0.875rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        @media (min-width: 640px) {
+            h1 {
+                font-size: 2.25rem;
             }
-            
-            // Sukces - wyświetl informację
-            resultDiv.classList.remove('hidden');
-            resultDiv.querySelector('div').className = 'bg-blue-50 border border-blue-200 rounded-lg p-4';
-            resultMessage.className = 'text-blue-800';
-            resultMessage.textContent = `NIP ${nip} został zweryfikowany. Wkrótce dodamy funkcję generowania dokumentów.`;
-        });
+
+            .description {
+                font-size: 1.125rem;
+            }
+
+            .container {
+                padding: 3rem;
+            }
+
+            .form-group {
+                flex-direction: row;
+                gap: 0.5rem;
+            }
+
+            input[type="text"] {
+                flex: 1;
+            }
+
+            button {
+                width: auto;
+                min-width: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dokumenty przetargowe dla firm budowlanych</h1>
         
-        // Akceptuj tylko cyfry w polu NIP
-        document.getElementById('nip').addEventListener('input', function(e) {
-            this.value = this.value.replace(/\D/g, '');
-        });
-    </script>
+        <p class="description">
+            Profesjonalne dokumenty przetargowe w kilka minut. Automatycznie generujemy kompletną dokumentację niebziędną do udziału w przetargach publicznych i prywatnych. Oszczędzaj czas i eliminuj błę�y.
+        </p>
+
+        <div class="form-section">
+            <form class="form-group" onsubmit="event.preventDefault(); alert('Funkcja sprawdzania w budowie');">
+                <input type="text" placeholder="Wpisz NIP" pattern="[0-9]{10}" maxlength="10" required>
+                <button type="submit">Sprawdź firmę</button>
+            </form>
+        </div>
+
+        <div class="pricing-section">
+            <div class="pricing-label">Cennik</div>
+            <div class="price-box">99 PLN za pakiet</div>
+        </div>
+    </div>
 </body>
 </html>
